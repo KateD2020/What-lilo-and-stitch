@@ -5,3 +5,10 @@ body {
 h1, h2{
  font-family: 'Luckiest Guy';
 }
+.question-row{
+  display: none;
+}
+
+#final-row{
+  display: none;
+}
