@@ -14,6 +14,10 @@ var characters = {
   "Pudge": 0
 }
 
+
+
+var characterList = ["Lilo", "Stitch", "Nina", "David", "Jumba", "Pleakley", "Gantu", "Bubbles", "Pudge"]
+
 $('.answer-button').on('click', function(e) {
   var parentId = $(this).parent().attr('id')
   var questionNumber = parentId.split('-')[1];
@@ -30,5 +34,30 @@ $('.answer-button').on('click', function(e) {
   } else {
     $('#question-5').hide();
     $('#final-row').show();
+    var maxPoints = 0;
+    for(let i = 0; i < characterList.length; i++){
+      var points = characters[characterList[i]];
+      if(points > maxPoints){
+        maxPoints = points;
+      }
+    }
+    var winners = [];
+    for (const c in characters){
+      if (characters[c] == maxPoints){
+      winners.push(c);
+    }
+  }
+
+   if (winners.length == 1){
+     $('#final-character').text(winners[0]);
+     $('#winner-' + winners[0]).show();
+   } else {
+      var randomWinner = Math.floor(Math.random() * winners.length)
+      $('#final-character').text(winners[randomWinner]);
+      $('#winner-' + winners[randomWinner]).show();
+   }
+
+
+
   }
 })

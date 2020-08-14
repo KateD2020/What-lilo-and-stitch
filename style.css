@@ -12,3 +12,8 @@ h1, h2{
 #final-row{
   display: none;
 }
+
+.winner-img{
+  max-width: 300px;
+  display: none;
+}
